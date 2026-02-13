@@ -16,6 +16,12 @@ COPY . .
 
 ENV NEXT_TELEMETRY_DISABLED=1
 
+# Build args for NEXT_PUBLIC_* env vars (Railway passes these automatically)
+ARG NEXT_PUBLIC_ELEVENLABS_AGENT_ID
+ARG NEXT_PUBLIC_API_URL
+ENV NEXT_PUBLIC_ELEVENLABS_AGENT_ID=$NEXT_PUBLIC_ELEVENLABS_AGENT_ID
+ENV NEXT_PUBLIC_API_URL=$NEXT_PUBLIC_API_URL
+
 RUN npm run build
 
 # Production image
@@ -36,7 +42,7 @@ USER nextjs
 
 EXPOSE 3000
 
-ENV PORT=3000
+# Let Railway set the PORT (defaults to 3000)
 ENV HOSTNAME="0.0.0.0"
 
 CMD ["node", "server.js"]
