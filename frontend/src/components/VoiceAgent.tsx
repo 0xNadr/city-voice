@@ -44,6 +44,7 @@ export default function VoiceAgent({ agentId }: VoiceAgentProps) {
 
       const conversation = await Conversation.startSession({
         agentId: agentId,
+        connectionType: 'webrtc',
         onConnect: () => {
           setStatus('Verbunden')
           setIsCallActive(true)
