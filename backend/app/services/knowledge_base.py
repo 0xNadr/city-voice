@@ -33,7 +33,7 @@ class KnowledgeBaseService:
         # Get or create collection
         self._collection = self._client.get_or_create_collection(
             name="city_knowledge",
-            metadata={"description": "Lüneburg city services knowledge base"},
+            metadata={"description": "City services knowledge base"},
         )
 
     def add_documents(self, documents: list[dict]):

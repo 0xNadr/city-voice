@@ -3,8 +3,8 @@
 ## 1. Overview
 
 **Project Name:** CityVoice
-**Description:** An LLM-powered VoiceBot prototype for the Hansestadt Lüneburg enabling citizens to interact via voice to inquire about city services and opening hours.
-**Target Users:** Citizens of Lüneburg seeking information about municipal services
+**Description:** An LLM-powered VoiceBot prototype enabling citizens to interact via voice to inquire about city services and opening hours.
+**Target Users:** Citizens seeking information about municipal services
 **Scope:** Full-stack prototype (~4-6 hours development time)
 
 ---
@@ -288,9 +288,9 @@ tools = [
 
 ## 13. Resources
 
-- **Opening Hours Data:** [opening_hours.json](https://drive.google.com/file/d/1xnbsnLqDDm_5AUHEFpYERa5j4Pd98PYn/view)
-- **Knowledge Base:** [Markdown files (~600)](https://drive.google.com/file/d/1hspSqvP5D2oQ8JErlcaqDSbLMnXjuzyf/view)
-- **API Keys:** OpenAI & ElevenLabs (provided)
+- **Opening Hours Data:** `backend/data/opening_hours.json`
+- **Knowledge Base:** `backend/data/knowledge_base/` (Markdown files)
+- **API Keys:** OpenAI & ElevenLabs (required)
 
 ---
 

@@ -5,7 +5,7 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'CityVoice - Lüneburg',
+  title: 'CityVoice',
   description: 'Sprachassistent für städtische Dienstleistungen',
 }
 

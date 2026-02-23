@@ -73,7 +73,7 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(
     title=settings.app_name,
-    description="Voice AI Backend for CityVoice - Lüneburg City Services",
+    description="Voice AI Backend for CityVoice - City Services",
     version="0.2.0",
     lifespan=lifespan,
 )

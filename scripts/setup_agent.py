@@ -54,7 +54,7 @@ GERMAN_VOICES = {
 SELECTED_VOICE = GERMAN_VOICES["Nicole"]
 
 # System prompt for CityVoice
-SYSTEM_PROMPT = """Du bist CityVoice, der virtuelle Sprachassistent der Hansestadt Lüneburg.
+SYSTEM_PROMPT = """Du bist CityVoice, der virtuelle Sprachassistent für Ihre Stadt.
 
 Deine Aufgaben:
 - Du hilfst Bürgern bei Fragen zu städtischen Dienstleistungen und Öffnungszeiten
@@ -73,7 +73,7 @@ Beispiele für Fragen die du beantworten kannst:
 - Was brauche ich für die Kfz-Zulassung?
 """
 
-FIRST_MESSAGE = "Guten Tag! Willkommen bei CityVoice, dem Sprachassistenten der Stadt Lüneburg. Wie kann ich Ihnen heute helfen?"
+FIRST_MESSAGE = "Guten Tag! Willkommen bei CityVoice, Ihrem Sprachassistenten für städtische Dienstleistungen. Wie kann ich Ihnen heute helfen?"
 
 
 def get_tools(webhook_url: str) -> list:
@@ -135,8 +135,8 @@ def create_agent(webhook_url: str = None) -> str:
     tools = get_tools(webhook_url)
 
     payload = {
-        "name": "CityVoice Lüneburg",
-        "tags": ["cityvoice", "luneburg", "german"],
+        "name": "CityVoice",
+        "tags": ["cityvoice", "german"],
         "conversation_config": {
             "agent": {
                 "first_message": FIRST_MESSAGE,

@@ -16,7 +16,7 @@ export default function Home() {
             City<span className="text-brand-cyan">Voice</span>
           </h1>
           <p className="text-text-secondary text-sm sm:text-base md:text-lg">
-            Ihr Sprachassistent für die Hansestadt Lüneburg
+            Ihr Sprachassistent für Ihre Stadt
           </p>
         </header>
 
@@ -58,7 +58,7 @@ export default function Home() {
 
         {/* Footer */}
         <footer className="text-center mt-6 sm:mt-8 md:mt-10 text-xs sm:text-sm text-text-muted">
-          <p>CityVoice - Ein Prototyp für die Hansestadt Lüneburg</p>
+          <p>CityVoice - Ein Prototyp für städtische Dienstleistungen</p>
         </footer>
       </div>
     </main>

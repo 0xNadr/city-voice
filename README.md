@@ -1,6 +1,6 @@
-# CityVoice - Sprachassistent für Lüneburg
+# CityVoice - Sprachassistent für Ihre Stadt
 
-Ein LLM-gestützter Sprachassistent für die Hansestadt Lüneburg, der Bürgern Informationen über städtische Dienstleistungen und Öffnungszeiten bereitstellt.
+Ein LLM-gestützter Sprachassistent, der Bürgern Informationen über städtische Dienstleistungen und Öffnungszeiten bereitstellt.
 
 ## Architektur
 
@@ -21,7 +21,7 @@ Ein LLM-gestützter Sprachassistent für die Hansestadt Lüneburg, der Bürgern 
 ┌───────────────────────────┼─────────────────────────────────┐
 │              ElevenLabs Conversational AI                    │
 │  ┌─────────────────────────────────────────────────────────┐│
-│  │  Agent: CityVoice Lüneburg                              ││
+│  │  Agent: CityVoice                                        ││
 │  │  ┌─────────┐   ┌─────────┐   ┌─────────┐   ┌─────────┐ ││
 │  │  │   ASR   │ → │  LLM    │ → │  Tools  │ → │   TTS   │ ││
 │  │  │(Whisper)│   │(GPT-4o) │   │(Webhooks│   │(Turbo)  │ ││
@@ -278,7 +278,7 @@ Der ElevenLabs Agent ist konfiguriert mit:
 
 | Einstellung | Wert |
 |-------------|------|
-| Name | CityVoice Lüneburg |
+| Name | CityVoice |
 | Sprache | Deutsch (de) |
 | Stimme | Sarah (Mature, Reassuring) |
 | TTS Modell | eleven_turbo_v2_5 |
@@ -342,4 +342,4 @@ cd backend && uvicorn app.main:app --reload
 
 ## Lizenz
 
-Prototyp für die Hansestadt Lüneburg
+Prototyp für städtische Dienstleistungen
