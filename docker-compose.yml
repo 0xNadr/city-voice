@@ -1,37 +1,51 @@
-version: '3.8'
-
 services:
-  backend:
+  city-voice-api:
     build:
       context: ./backend
       dockerfile: Dockerfile
-    ports:
-      - "8000:8000"
+    image: city-voice-api
+    container_name: city-voice-api
+    restart: unless-stopped
+    mem_limit: 512m
     env_file:
-      - .env
+      - ./backend/.env
     volumes:
       - ./backend/data:/app/data
       - chroma_data:/app/chroma_data
-    environment:
-      - CHROMA_PERSIST_DIR=/app/chroma_data
-      - OPENING_HOURS_PATH=/app/data/opening_hours.json
-      - KNOWLEDGE_BASE_PATH=/app/data/knowledge_base
+      - onnx_cache:/root/.cache/chroma
+    expose:
+      - "8000"
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
       interval: 30s
       timeout: 10s
-      retries: 3
+      retries: 5
+      start_period: 300s
+    networks:
+      - proxy
 
-  frontend:
+  city-voice-web:
     build:
       context: ./frontend
       dockerfile: Dockerfile
-    ports:
-      - "3000:3000"
-    environment:
-      - NEXT_PUBLIC_API_URL=http://localhost:8000
+      args:
+        NEXT_PUBLIC_ELEVENLABS_AGENT_ID: agent_7001khb5kegyern85kt6c0w2mn70
+        NEXT_PUBLIC_API_URL: https://city-voice-api.nader.info
+    image: city-voice-web
+    container_name: city-voice-web
+    restart: unless-stopped
+    mem_limit: 512m
+    expose:
+      - "3000"
     depends_on:
-      - backend
+      - city-voice-api
+    networks:
+      - proxy
 
 volumes:
   chroma_data:
+  onnx_cache:
+
+networks:
+  proxy:
+    external: true
