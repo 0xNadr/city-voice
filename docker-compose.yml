@@ -35,6 +35,16 @@ services:
     container_name: city-voice-web
     restart: unless-stopped
     mem_limit: 512m
+    # Hardened after the Sep 2026 compromise
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    pids_limit: 100
+    read_only: true
+    tmpfs:
+      - /tmp:size=64m,noexec,nosuid,nodev
+      - /app/.next/cache:size=64m,noexec,nosuid,nodev,uid=1001,gid=1001
     expose:
       - "3000"
     depends_on:
